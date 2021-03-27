@@ -141,6 +141,7 @@ legend{
 	height: 5px;
 	width: 100%;
 	border: 0;
+	border-radius: 10px;
 }/* 
 ::scrollbar{
 	width: 15px;
