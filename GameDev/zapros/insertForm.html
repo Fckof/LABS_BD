@@ -1,0 +1,180 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GameDev</title>
+	<style>
+		body{
+			min-height: 100vh;
+			min-width: 800px;
+			margin: 0;
+			padding: 0;
+			background-color: black;
+			color: orange;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			font-size: 25px;
+			font-family: "Comic Sans MS", sans-serif;
+		}
+		.input{
+			padding: 10px;
+			border:5px solid white;
+			border-radius: 20px;
+			//height: 25px;
+			animation: bordercolors 6s infinite linear;
+		}
+		.login-form{
+			width: 350px;
+			//height: 450px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.field{
+			width: 95%;
+			height: 95%;
+			border-radius: 30px;
+		}
+		.input-field{
+			flex-direction: column;
+			margin: 20px auto;
+			display: flex;
+			justify-content: center;
+		}
+		#button-submit{
+			margin:40px auto 0 auto;
+			width: 150px;
+			height: 60px;
+			border-radius: 30px;
+			border:0px solid red;
+			transition: .4s;
+			animation:colors 6s linear infinite,scalebut 1s linear infinite ;
+			color: white;
+		}
+		#button-submit:hover{
+			border:5px solid white;
+		}
+		#button-submit:active{
+			border:15px solid red;
+		}
+		input{
+			text-align: center;
+			font-size: 22px;
+			outline: none;
+		}
+
+		@keyframes scalebut {
+			0%{
+				transform: scale(1);
+			}
+			50%{
+				transform: scale(1.04);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+		@keyframes colors {
+			0%{
+				background-color: #2417d4;
+			}
+			25%{
+				background-color: #da8419;
+			}
+			50%{
+				background-color: #990dd2;
+			}
+			75%{
+				background-color: #dd0e90;
+			}
+			100%{
+				background-color: #2417d4;
+			}
+		}
+		@keyframes bordercolors {
+			0%{
+				border-color: #2417d4;
+			}
+			25%{
+				border-color: #da8419;
+			}
+			50%{
+				border-color: #990dd2;
+			}
+			75%{
+				border-color: #dd0e90;
+			}
+			100%{
+				border-color: #2417d4;
+			}
+		}
+		fieldset{
+			border:5px solid orange;
+			animation: bordercolors 6s infinite linear;
+		}
+		.msg{
+			font-size: 16px;
+			color: red;
+		}
+		h1{
+			margin: 0 auto;
+		}
+	</style>
+	<script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<h1>Форма добавления исполнителя</h1>
+	<form method="POST" action="insert.php" class="login-form" autocomplete="off">
+		
+		<fieldset class="field">
+			<legend>Add an executer </legend>
+			<div class="input-field">
+			<label for="name">Name <br>
+				<input type="text" name="name" class="input" id="name" placeholder="Executer name" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
+			</label></div>
+
+			<div class="input-field">
+			<label for="surname">Surname <br>
+				<input type="text" name="surname" class="input" id="surname" placeholder="Executer surname" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
+			</label>
+		</div>
+		<div class="input-field">
+			<label for="fathername">Fathername <br>
+				<input type="text" name="fathername" class="input" id="fathername" placeholder="Executer fathername" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
+			</label>
+		</div>
+
+		<div class="input-field">
+			<label for="fathername">Position ID 1-6 and 12-13<br>
+				<input type="number" name="position" class="input" id="position" placeholder="Executer Position ID" autocomplete="off" required >
+			</label>
+		</div>
+
+		
+		<div class="input-field">
+			<input type="submit" name="send" class="input" id="button-submit" value="Add" >
+		</div>
+
+
+		</fieldset>
+	</form>
+	<script>
+		$('#button-submit').click(function(event) {
+			var inVal = parseInt($('#position').val());
+			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13){
+
+				alert('Error Enter position 1-6 and 12-13!');
+				return false;
+			}
+			
+			
+		});
+	</script>
+</body>
+</html>
