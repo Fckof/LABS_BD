@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 <body>
 	<div class="menu">
 				<ul>
-					<li><a href="menu.html" target="menu-page"><--Назад</a></li>
+					<li><a href="menu.php" target="menu-page"><--Назад</a></li>
 					<hr class="red-hr">
 					<li><a href="zapros/zapros1.php" target="main-page">Запрос №1</a></li>
 					<hr>
@@ -31,13 +32,20 @@
 					<hr>
 					<li><a href="zapros/zapros10.php" target="main-page">Запрос №10</a></li>
 					<hr>
-					<li><a href="zapros/insertForm.html" target="main-page">Запрос №11</a></li>
+					<li><a href="zapros/zapros14.php" target="main-page">Запрос №11</a></li>
 					<hr>
-					<li><a href="zapros/updateForm.html" target="main-page">Запрос №12</a></li>
+					<?php 
+						if($_SESSION['user']=='root'):
+					 ?>
+    						
+					<li><a href="zapros/insertForm.html" target="main-page">Добавить исполнителя</a></li>
 					<hr>
-					<li><a href="zapros/deleteForm.html" target="main-page">Запрос №13</a></li>
+					<li><a href="zapros/updateForm.html" target="main-page">Обновить рейтинг</a></li>
 					<hr>
-					<li><a href="zapros/zapros14.php" target="main-page">Запрос №14</a></li>
+					<li><a href="zapros/deleteForm.html" target="main-page">Удалить исполнителя</a></li>
+					<hr>
+
+					<?php endif; ?>
 				</ul>
 	</div>
 </body>

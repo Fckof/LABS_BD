@@ -20,54 +20,22 @@ hr{
 .main-header{
 	position: relative;
 	background-color: #000;
-	width: 100%;
+	width: 85%;
 	height: 100vh;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	font-size: 24px;
-}
-.topic{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-}
-.topic ul,ol{
-	font-size: 21px;
-}
-.topic li{
-	margin: 10px 0;
-}
-.topic-header{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100px;
-	//background-color: red;
-}
-.topic-paragraph{
-	color: white;
-	width: 70%;
-	height: auto;
+	justify-content: space-between;
 	margin: 0 auto;
+	
+}
+.main-header h1,a{
+	font-size: 28px;
+	text-decoration: none;
+	color: yellow;
 
 }
-.topic-paragraph p{
-	line-height: 1.7;
-	font-size: 25px;
-}
-.topic-paragraph p:first-letter{
-	font-size: 40px;
-	margin-left: 15px;
-}
-.topic img{
-	width: 600px;
-	height: auto;
-	margin: 20px;
-	border:2px solid white;
-	border-radius: 5px 40px;
+.main-header a:hover{
+	color: red;
 }
 .wrap{
 	width: 350px;
@@ -95,6 +63,10 @@ h1,label{
 	margin: 0;
 	padding: 0;}
 
+h1{
+	font-size: 19px;
+}
+
 .frame-menu{
 	width: 20%;
 	background-color:rgba(0,0,0,.3);
@@ -107,7 +79,7 @@ h1,label{
 	background-color: rgba(0,0,0, .4);
 	width: 100%;
 	min-height: 90vh;
-	line-height: 1.7;
+	line-height: 1;
 	z-index: 50;
 	flex-direction: column;
 	margin:10px auto;

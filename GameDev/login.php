@@ -1,4 +1,26 @@
+ <?php 
 
+session_start();
+
+	$user = "user";
+	$pass = "user123";
+	$root = "root";
+	$passroot = "root123";
+
+	if($_POST['submit']){
+ 		if($root == $_POST['user'] AND $passroot == $_POST['pass']){
+ 			$_SESSION['user'] = $root;
+ 			header("Location: index.php");
+ 			exit;
+ 			}elseif($user == $_POST['user'] AND $pass == $_POST['pass']){
+ 				$_SESSION['user'] = $user;
+ 			header("Location: index.php");
+ 			exit;
+ 			}
+			else $_SESSION['msg']="Не верный логин или пароль";
+} 
+
+ ?>
 
 
 <!DOCTYPE html>
@@ -10,15 +32,16 @@
 	<style>
 		body{
 			min-height: 100vh;
-			min-width: 800px;
+			min-width: 1200px;
 			margin: 0;
 			padding: 0;
 			background-color: black;
-			color: white;
+			color: orange;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
+			font-size: 25px;
 			font-family: "Comic Sans MS", sans-serif;
 		}
 		.input{
@@ -30,7 +53,7 @@
 		}
 		.login-form{
 			width: 350px;
-			//height: 450px;
+			height: 450px;
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
@@ -121,58 +144,39 @@
 			font-size: 16px;
 			color: red;
 		}
-		h1{
-			margin: 15px auto;
-		}
 	</style>
-	<script src="../jquery-3.5.1.min.js"></script>
 </head>
 <body>
-	<h1>Форма добавления исполнителя</h1>
-	<form method="POST" action="insert.php" class="login-form" autocomplete="off">
-		
+	<form method="POST" class="login-form" autocomplete="off">
 		<fieldset class="field">
+			<legend>Log In DataBase </legend>
+
 			<div class="input-field">
-			<label for="name">Name <br>
-				<input type="text" name="name" class="input" id="name" placeholder="Executer name" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
+			<label for="login">Login <br>
+
+				<input type="text" name="user" class="input" id="user" placeholder="Enter login" autocomplete="off" required>
+
 			</label></div>
 
 			<div class="input-field">
-			<label for="surname">Surname <br>
-				<input type="text" name="surname" class="input" id="surname" placeholder="Executer surname" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
-			</label>
-		</div>
-		<div class="input-field">
-			<label for="fathername">Fathername <br>
-				<input type="text" name="fathername" class="input" id="fathername" placeholder="Executer fathername" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
-			</label>
-		</div>
+			<label for="pass">Password <br>
 
-		<div class="input-field">
-			<label for="fathername">Position ID 1-6 and 12-13<br>
-				<input type="number" name="position" class="input" id="position" placeholder="Executer Position ID" autocomplete="off" required >
-			</label>
-		</div>
+				<input type="password" name="pass" class="input" id="password" placeholder="Enter password" autocomplete="off" required>
 
+			</label></div>
+			<?php 
+				if($_SESSION['msg']){
+					print "<p class='msg'>".$_SESSION['msg']."</p>";
+				}
+				unset($_SESSION['msg']);
+			 ?>
 		
 		<div class="input-field">
-			<input type="submit" name="send" class="input" id="button-submit" value="Add" >
+			<input type="submit" name="submit" class="input" id="button-submit" value="Log In">
+			
 		</div>
-
 
 		</fieldset>
 	</form>
-	<script>
-		$('#button-submit').click(function(event) {
-			var inVal = parseInt($('#position').val());
-			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13){
-
-				alert('Error Enter position 1-6 and 12-13!');
-				return false;
-			}
-			
-			
-		});
-	</script>
 </body>
 </html>
