@@ -14,7 +14,6 @@ if (count($result)==0){
 		print "Нет записей";
 	}
 	$dataY=array(array());
-	$dataX=array();
 
 	//print "<table border='1'bordercolor='grey' style='color:black;font-size:25px;margin:15px auto;border:0 solid grey;'><th>Компания разработчик</th><th>Затраты</th>";
 $num=0;
@@ -22,7 +21,6 @@ $dataY[0]=array("Должности","Зарплаты");
 	while ($row=$result->fetch_assoc()) {
 		 //print "<tr><td>".$row["должность"]."</td><td>".$row["зарплата"]."</td></tr>";
 		$dataY[]=array($row["должность"], (int)$row["зарплата"]);
-		//$dataX[]=$row["должность"];
 			$num++;
 			}
 
