@@ -47,8 +47,12 @@ if (count($result)==0){
 		th{
 			border:none;
 		}
-		th{
-			margin: 15px auto;
+		td{
+			padding: 10px;
+		}
+		table{
+			border-collapse: separate;
+			border-spacing: 7px 10px;
 		}
 	</style>
 </head>
