@@ -6,6 +6,8 @@ session_start();
 	$pass = "user123";
 	$root = "root";
 	$passroot = "root123";
+	$moder="moderator";
+	$passmoder="moder123";
 
 	if($_POST['submit']){
  		if($root == $_POST['user'] AND $passroot == $_POST['pass']){
@@ -14,6 +16,11 @@ session_start();
  			exit;
  			}elseif($user == $_POST['user'] AND $pass == $_POST['pass']){
  				$_SESSION['user'] = $user;
+ 			header("Location: index.php");
+ 			exit;
+ 			}
+ 			elseif($moder == $_POST['user'] AND $passmoder == $_POST['pass']){
+ 				$_SESSION['user'] = $moder;
  			header("Location: index.php");
  			exit;
  			}

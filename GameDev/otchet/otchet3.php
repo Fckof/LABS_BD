@@ -13,23 +13,22 @@ GROUP BY `должность` ORDER BY Sum(`команда проекта`.`Ок
 if (count($result)==0){
 		print "Нет записей";
 	}
-	$dataY=array(array());
-
-	//print "<table border='1'bordercolor='grey' style='color:black;font-size:25px;margin:15px auto;border:0 solid grey;'><th>Компания разработчик</th><th>Затраты</th>";
+	//$dataY=array(array());
+	$data1=array();
+	$data2=array();
 $num=0;
-$dataY[0]=array("Должности","Зарплаты");
+//$dataY[0]=array("Должности","Зарплаты");
 	while ($row=$result->fetch_assoc()) {
-		 //print "<tr><td>".$row["должность"]."</td><td>".$row["зарплата"]."</td></tr>";
-		$dataY[]=array($row["должность"], (int)$row["зарплата"]);
-			$num++;
+		 
+		// $dataY[]=array($row["должность"], (int)$row["зарплата"]);
+		// 	$num++;
+		$data1[]=$row["должность"];
+		$data2[]=(int)$row["зарплата"];
 			}
 
-	//  print "</table>";
-	// for($i=0;$i<$num;$i++){
-	// 	echo var_dump($dataY[$i]);
-	// }
-	echo "<script> table=".json_encode($dataY).";</script>";
-			//echo $num;
+	
+	// echo "<script> table=".json_encode($dataY).";</script>";
+
 $conn->close();
  ?>
 <!DOCTYPE html>
@@ -39,7 +38,7 @@ $conn->close();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<script type="text/javascript" src="loader.js"></script>
+	<script type="text/javascript" src="package/dist/chart.js"></script>
 
 	<style>
 		body{
@@ -80,7 +79,7 @@ $conn->close();
 			margin: 15px auto;
 		}
 	</style>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		console.log(table);
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawStuff);
@@ -103,7 +102,10 @@ $conn->close();
         var chart = new google.charts.Bar(document.getElementById('top_x_div'));
         chart.draw(data, options);
       };
-    </script>
+    </script> -->
+
+    
+
 </head>
 <body>
 	<div class="form">
@@ -111,7 +113,47 @@ $conn->close();
 			<h1>Отчет о самых оплачиваемых должностях</h1>
 			<p> <?php print date("d F Y г.")."<br>".date("h:m:s"); ?> </p>
 		</div>
-		<div id="top_x_div" style="width: 900px; height: 450px;margin: 20px auto;"></div>
+		<canvas id="myChart" width="400" height="180"></canvas>
 	</div>
+
+	<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: <?php echo json_encode($data1) ?>,
+        datasets: [{
+            label: 'Руб',
+            data: <?php echo json_encode($data2) ?>,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
 </body>
 </html>

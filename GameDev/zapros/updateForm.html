@@ -139,7 +139,7 @@
 
 			<div class="input-field">
 			<label for="surname">Рейтинг <br>
-				<input type="number" name="rating" class="input" id="rating" placeholder="Rating" autocomplete="off" required>
+				<input type="number" name="rating" class="input" id="rating" placeholder="Rating" autocomplete="off" required >
 			</label>
 		</div>
 		
@@ -153,12 +153,15 @@
 	</form>
 	<script>
 		$('#button-submit').click(function(event) {
-			var inVal = parseInt($('#position').val());
-			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13){
+			var inVal = parseInt($('#rating').val());
+			var idVal = parseInt($('#gameid').val());			
+			if(inVal<1 || inVal>99 || idVal<1 || idVal>99){
 
-				alert('Error Enter position 1-6 and 12-13!');
+				alert('Rating and ID should be 1-99');
 				return false;
+				
 			}
+
 			
 			
 		});

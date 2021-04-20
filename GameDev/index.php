@@ -6,7 +6,7 @@ if($_GET['do'] == 'logout'){
  unset($_SESSION['user']);
  session_destroy();
 } 
- if($_SESSION['user'] != "root" AND $_SESSION['user'] != "user"){
+ if($_SESSION['user'] != "root" AND $_SESSION['user'] != "user" AND $_SESSION['user'] != "moderator"){
     header("Location: login.php");    
     exit; 
     }

@@ -34,14 +34,19 @@
 					<hr>
 					<li><a href="zapros/zapros14.php" target="main-page">Запрос №11</a></li>
 					<hr>
-					<?php 
-						if($_SESSION['user']=='root'):
+					
+					 <?php 
+						if($_SESSION['user']=='moderator'||$_SESSION['user']=='root'):
 					 ?>
-    						
 					<li><a href="zapros/insertForm.html" target="main-page">Добавить исполнителя</a></li>
 					<hr>
 					<li><a href="zapros/updateForm.html" target="main-page">Обновить рейтинг</a></li>
 					<hr>
+					<?php endif; ?>
+					
+					<?php 
+						if($_SESSION['user']=='root'):
+					?>
 					<li><a href="zapros/deleteForm.html" target="main-page">Удалить исполнителя</a></li>
 					<hr>
 

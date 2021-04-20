@@ -165,7 +165,7 @@
 	<script>
 		$('#button-submit').click(function(event) {
 			var inVal = parseInt($('#position').val());
-			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13){
+			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13||inVal==0){
 
 				alert('Error Enter position 1-6 and 12-13!');
 				return false;

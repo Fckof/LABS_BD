@@ -134,7 +134,7 @@
 		<fieldset class="field">
 			<div class="input-field">
 			<label for="name">Name <br>
-				<input type="text" name="name" class="input" id="name" placeholder="Name" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$">
+				<input type="text" name="name" class="input" id="name" placeholder="Name" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="2">
 			</label></div>
 
 			<div class="input-field">
@@ -153,10 +153,10 @@
 	</form>
 	<script>
 		$('#button-submit').click(function(event) {
-			var inVal = parseInt($('#position').val());
-			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13){
+			var inVal = parseInt($('#exeid').val());			
+			if(inVal<1){
 
-				alert('Error Enter position 1-6 and 12-13!');
+				alert("Executers don`t have ID=0");
 				return false;
 			}
 			
