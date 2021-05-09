@@ -9,9 +9,9 @@
 </head>
 <body>
 	<div class="menu">
-				<ul>
-					<li><a href="menu.php" target="menu-page"><--Назад</a></li>
-					<hr class="red-hr">
+				<div class="stat-block"><a href="menu.php" target="menu-page" id="back"><--Назад</a><hr class="red-hr"></div>
+
+			<ul class="list">
 					<li><a href="zapros/zapros1.php" target="main-page">Запрос №1</a></li>
 					<hr>
 					<li><a href="zapros/zapros2.php" target="main-page">Запрос №2</a></li>
@@ -48,7 +48,7 @@
 						if($_SESSION['user']=='root'):
 					?>
 					<li><a href="zapros/deleteForm.html" target="main-page">Удалить исполнителя</a></li>
-					<hr>
+					
 
 					<?php endif; ?>
 				</ul>
