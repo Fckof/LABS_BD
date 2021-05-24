@@ -2,11 +2,14 @@
 <?php
 
 session_start();
+
 if($_GET['do'] == 'logout'){
  unset($_SESSION['user']);
  session_destroy();
 } 
- if($_SESSION['user'] != "root" AND $_SESSION['user'] != "user" AND $_SESSION['user'] != "moderator"){
+ 
+ if(is_null($_SESSION['user']))
+{
     header("Location: login.php");    
     exit; 
     }
@@ -22,12 +25,20 @@ if($_GET['do'] == 'logout'){
     <link rel="stylesheet" href="style.css">
     
 </head>
-        <frameset rows="60,*" border="0" bordercolor='aqua' noresize >
-            <frame src="header.php">
+        <frameset rows="60,*,50" border="0" bordercolor='aqua' noresize >
+
+            <frameset>
+                <frame src="header.php">
+            </frameset>
+
             <frameset cols="20%, 80%">
-                <frame src="menu.php" name="menu-page">
+                <frame src="" name="menu-page">
                 <frame src="" name="main-page">
             </frameset>
+
+            <frameset>
+                <frame src="campaign.html">
+           </frameset>
         </frameset>
         
 </html>

@@ -1,14 +1,9 @@
 <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
+	include "../connect.php";
 
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
-
-$result=$conn->query("SELECT `команда разработчиков`.`Название`, Count(`игры`.`Название`) AS `Количество`
+$result=$conn->query("call zapros7()");/*query("SELECT `команда разработчиков`.`Название`, Count(`игры`.`Название`) AS `Количество`
 FROM `команда разработчиков` INNER JOIN `игры` ON `команда разработчиков`.`ID разработчика` = `игры`.`ID разработчика`
-GROUP BY `команда разработчиков`.`Название`");
+GROUP BY `команда разработчиков`.`Название`");*/
 
 if (count($result)==0){
 		echo "Нет записей";

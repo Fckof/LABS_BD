@@ -1,12 +1,7 @@
 <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
+	include "../connect.php";
 
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
-
-$result=$conn->query("SELECT `исполнители`.`Фамилия`, `исполнители`.`Имя`, `исполнители`.`Отчество`, `команда проекта`.`Оклад за этап` FROM `исполнители` INNER JOIN `команда проекта` ON `исполнители`.`ID исполнителя` = `команда проекта`.`ID исполнителя`");
+$result=$conn->query("call zapros2()");/*query("SELECT `исполнители`.`Фамилия`, `исполнители`.`Имя`, `исполнители`.`Отчество`, `команда проекта`.`Оклад за этап` FROM `исполнители` INNER JOIN `команда проекта` ON `исполнители`.`ID исполнителя` = `команда проекта`.`ID исполнителя`");*/
 
 if (count($result)==0){
 		echo "Нет записей";

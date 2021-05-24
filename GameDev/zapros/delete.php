@@ -1,11 +1,11 @@
 <?php 
+include "../connect.php";
+
 $name=$_POST['name'];
 $exeid=$_POST['exeid'];
 
-
- $conn=new mysqli('localhost','root','root','gamedev') or die("Не подключилось..");
-
- $result=$conn->query("DELETE FROM `исполнители` WHERE `Имя`='$name' and `ID исполнителя`=$exeid");
+ $result=$conn->query("call deleteuser('$exeid','$name')");
+/*query("DELETE FROM `исполнители` WHERE `Имя`='$name' and `ID исполнителя`='$exeid'");*/
       	
 	if ($result) {
       echo "<script>alert('Данные удалены');</script>";

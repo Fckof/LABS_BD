@@ -7,7 +7,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
 	<style>
-		
+	
 	</style>
 </head>
 <body>
@@ -15,7 +15,27 @@
 	
 
 	<div class="main-header">
-		<h1>Вы вошли как: <?php print $_SESSION['user']?></h1>
+		<h1>Пользователь: <?php print $_SESSION['user']?></h1>
+
+		<div class="top_menu">
+			<ul>
+				<!-- <hr> -->
+				<li><a href="tables.html" target="menu-page" class="">Таблицы</a></li>
+				<!-- <hr> -->
+				
+				<li><a href="zaprosi.php" target="menu-page" class="">Запросы</a></li>
+
+				<?php
+					if($_SESSION['user']=='root'):
+				?>
+				<!-- <hr> -->
+				<li> <a href="otchets.html" target="menu-page" class="">Отчеты</a> </li>
+				<?php
+					endif;
+				?>
+				<!-- <hr> -->
+			</ul>
+	</div>
 	
 	 <a href="index.php?do=logout" target="_top" class="font">Выход</a> 
 		</div>

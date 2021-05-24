@@ -2,30 +2,31 @@
 
 session_start();
 
-	$user = "user";
-	$pass = "user123";
-	$root = "root";
-	$passroot = "root123";
-	$moder="moderator";
-	$passmoder="moder123";
+include "connect.php";
 
-	if($_POST['submit']){
- 		if($root == $_POST['user'] AND $passroot == $_POST['pass']){
- 			$_SESSION['user'] = $root;
- 			header("Location: index.php");
- 			exit;
- 			}elseif($user == $_POST['user'] AND $pass == $_POST['pass']){
- 				$_SESSION['user'] = $user;
- 			header("Location: index.php");
- 			exit;
- 			}
- 			elseif($moder == $_POST['user'] AND $passmoder == $_POST['pass']){
- 				$_SESSION['user'] = $moder;
- 			header("Location: index.php");
- 			exit;
- 			}
-			else $_SESSION['msg']="Не верный логин или пароль";
-} 
+$user=$_POST['user'];
+$pass=$_POST['pass'];
+
+if($_POST['submit']){
+
+
+	$result=$conn->query("SELECT `ID доступа` FROM `пользователи` WHERE `Логин`='$user' and `Пароль`='$pass'");
+
+	$row=$result->fetch_assoc();
+	$access=$row['ID доступа'];
+	echo $access;
+	if(count($row)==0){
+		$_SESSION['msg']="Не верный логин или пароль";
+	}else{
+		$result=$conn->query("SELECT `Доступ` FROM `уровни доступа` WHERE `ID доступа`=$access");
+
+		$row=$result->fetch_assoc();
+
+		$_SESSION['user']=$row['Доступ'];
+		
+		header("Location: index.php");
+	} 
+}
 
  ?>
 

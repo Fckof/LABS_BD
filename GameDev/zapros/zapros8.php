@@ -1,12 +1,7 @@
 <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
+	include "../connect.php";
 
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
-
-$result=$conn->query("SELECT `игры`.`Название`, Year(`игры`.`Дата окончания работы`)-Year(`игры`.`Дата начала работы`) AS `Лет` FROM `игры`");
+$result=$conn->query("call zapros8()");/*query("SELECT `игры`.`Название`, Year(`игры`.`Дата окончания работы`)-Year(`игры`.`Дата начала работы`) AS `Лет` FROM `игры`");*/
 
 if (count($result)==0){
 		echo "Нет записей";

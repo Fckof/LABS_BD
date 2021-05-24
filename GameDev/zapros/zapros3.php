@@ -1,13 +1,8 @@
 <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
+	include "../connect.php";
 
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
-
-$result=$conn->query("SELECT `игры`.`Название`, `этапы`.`Название этапа`, SUM(`команда проекта`.`Оклад за этап`) AS `Общая сумма` FROM `игры` INNER JOIN (`этапы` INNER JOIN `команда проекта` ON `этапы`.`ID этапа` = `команда проекта`.`ID этапа`) ON `игры`.`ID игры` = `команда проекта`.`ID игры`
-GROUP BY `игры`.`Название`, `этапы`.`Название этапа`");
+$result=$conn->query("call zapros3()");/*query("SELECT `игры`.`Название`, `этапы`.`Название этапа`, SUM(`команда проекта`.`Оклад за этап`) AS `Общая сумма` FROM `игры` INNER JOIN (`этапы` INNER JOIN `команда проекта` ON `этапы`.`ID этапа` = `команда проекта`.`ID этапа`) ON `игры`.`ID игры` = `команда проекта`.`ID игры`
+GROUP BY `игры`.`Название`, `этапы`.`Название этапа`");*/
 
 if (count($result)==0){
 		echo "Нет записей";

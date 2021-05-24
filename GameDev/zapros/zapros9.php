@@ -1,15 +1,10 @@
 <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
+	include "../connect.php";
 
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
-
-$result=$conn->query("SELECT DISTINCT `игры`.`Название`, Sum(`команда проекта`.`Оклад за этап`) AS `Стоимость`
+$result=$conn->query("call zapros9()");/*query("SELECT DISTINCT `игры`.`Название`, Sum(`команда проекта`.`Оклад за этап`) AS `Стоимость`
 FROM игры INNER JOIN `команда проекта` ON `игры`.`ID игры` = `команда проекта`.`ID игры`
 GROUP BY `игры`.`Название`
-");
+");*/
 
 if (count($result)==0){
 		echo "Нет записей";

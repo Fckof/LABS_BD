@@ -128,38 +128,24 @@
 	<script src="../jquery-3.5.1.min.js"></script>
 </head>
 <body>
-	<h1>Форма добавления исполнителя</h1>
-	<form method="POST" action="insert.php" class="login-form" autocomplete="off">
+	<h1>Форма обновления цены на игру</h1>
+	<form method="POST" action="updatecost.php" class="login-form" autocomplete="off">
 		
 		<fieldset class="field">
-			
 			<div class="input-field">
-				<label for="surname">Surname <br>
-					<input type="text" name="surname" class="input" id="surname" placeholder="Executer surname" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
-				</label>
-			</div>
+			<label for="name">ID игры <br>
+				<input type="number" name="gameid" class="input" id="gameid" placeholder="Game ID" autocomplete="off" required >
+			</label></div>
 
 			<div class="input-field">
-				<label for="name">Name <br>
-					<input type="text" name="name" class="input" id="name" placeholder="Executer name" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
-				</label>
-			</div>
-
-		<div class="input-field">
-			<label for="fathername">Fathername <br>
-				<input type="text" name="fathername" class="input" id="fathername" placeholder="Executer fathername" autocomplete="off" required pattern="^[A-Za-zА-Яа-я]+$" minlength="3">
+			<label for="surname">Рейтинг <br>
+				<input type="number" name="cost" class="input" id="rating" placeholder="Cost" autocomplete="off" required >
 			</label>
 		</div>
-
-		<div class="input-field">
-			<label for="fathername">Position ID 1-6 and 12-13<br>
-				<input type="number" name="position" class="input" id="position" placeholder="Executer Position ID" autocomplete="off" required >
-			</label>
-		</div>
-
+		
 		
 		<div class="input-field">
-			<input type="submit" name="send" class="input" id="button-submit" value="Add" >
+			<input type="submit" name="send" class="input" id="button-submit" value="Update" >
 		</div>
 
 
@@ -167,12 +153,15 @@
 	</form>
 	<script>
 		$('#button-submit').click(function(event) {
-			var inVal = parseInt($('#position').val());
-			if(inVal<0||(inVal>6 && inVal<12)|| inVal>13||inVal==0){
+			var inVal = parseInt($('#rating').val());
+			var idVal = parseInt($('#gameid').val());			
+			if(inVal<1 || idVal<1 ){
 
-				alert('Error Enter position 1-6 and 12-13!');
+				alert('Cost and ID should be more then 1');
 				return false;
+				
 			}
+
 			
 			
 		});

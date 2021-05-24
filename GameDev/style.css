@@ -3,6 +3,7 @@ html{
 	margin: 0;
 	padding: 0;
 	background:#000;
+	cursor: url(cursor.png);
 }
 
 body{
@@ -10,7 +11,6 @@ body{
 	padding: 0;
 	color: white;
 }
-
 .back{
 	position: fixed;
 }
@@ -23,7 +23,8 @@ body{
 	background-color: black;
 }
 .list{
-	margin-top: 65px;
+	//margin-top: 65px;
+	//margin-top: 20px;
 }
 hr{
 	width: 200px;
@@ -33,7 +34,7 @@ hr{
 .main-header{
 	position: relative;
 	background-color: #000;
-	width: 85%;
+	width: 95%;
 	height: 100vh;
 	display: flex;
 	align-items: center;
@@ -138,3 +139,76 @@ legend{
 .font{
 	font-size: 40px !important;
 }
+
+.top_menu{
+	//background-color: green;
+	width: 50%;
+	border-left: 3px solid red;
+	border-right: 3px solid red;
+	padding: 0 30px;
+
+}
+.top_menu ul{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+@keyframes scalebut {
+			0%{
+				transform: scale(1);
+			}
+			50%{
+				transform: scale(1.04);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+
+.top_menu a{
+	margin: 0 0 0 30px;
+	transition: .3s;
+	border: 2px solid red;
+	padding: 5px 10px;
+	border-radius: 20px;
+}
+.top_menu a:hover{
+		animation:scalebut .7s infinite linear;
+}
+.top_menu li:hover{
+		animation:scalebut .7s infinite linear;
+}
+
+.top_menu li:first-child{
+	margin-left:0px;
+}
+
+.top_menu a{
+	font-size: 30px;
+	color: orange;
+}
+
+.top_menu a:hover{
+	
+	border-color: orange;
+}
+
+.main__items{
+	display: flex;
+	color: #fff;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.main__items img{
+	width: 50px;
+	border-radius: 50%;
+}
+.main__items h1{
+	margin: 0 6%;
+	font-size: 30px;
+}
+
