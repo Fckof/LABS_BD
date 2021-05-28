@@ -5,7 +5,7 @@
 	$database="gamedev";
 
 $conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
-
+include "../scroll.php";
 $result=$conn->query("SELECT * FROM `должности`");
 //$data=new array();
 if (count($result)==0){

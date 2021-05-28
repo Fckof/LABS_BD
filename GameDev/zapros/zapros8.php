@@ -1,6 +1,6 @@
 <?php 
 	include "../connect.php";
-
+include "../scroll.php";
 $result=$conn->query("call zapros8()");/*query("SELECT `игры`.`Название`, Year(`игры`.`Дата окончания работы`)-Year(`игры`.`Дата начала работы`) AS `Лет` FROM `игры`");*/
 
 if (count($result)==0){

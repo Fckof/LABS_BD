@@ -9,7 +9,7 @@ $position=$_POST['position'];
 
       
 
- $result=$conn->query("INSERT INTO `исполнители` (`ID исполнителя`, `Фамилия`, `Имя`,`Отчество`,`ID должности`) VALUES (NULL, '$surname', '$name','$fathername','$position')");
+ $result=$conn->query("call insert_user('$name','$surname','$fathername','$position')");/*query("INSERT INTO `исполнители` (`ID исполнителя`, `Фамилия`, `Имя`,`Отчество`,`ID должности`) VALUES (NULL, '$surname', '$name','$fathername','$position')");*/
 
 	if ($result) {
       echo "<script>alert('Данные добавлены');</script>";

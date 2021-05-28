@@ -1,6 +1,6 @@
 <?php 
 	include "../connect.php";
-
+include "../scroll.php";
 $result=$conn->query("call zapros14()");/*query("SELECT * FROM `исполнители` INNER JOIN `должности` ON `должности`.`ID должности`=`исполнители`.`ID должности` WHERE `Имя` LIKE 'И%' ");*/
 
 if (count($result)==0){

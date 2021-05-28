@@ -1,6 +1,6 @@
 <?php 
 	include "../connect.php";
-
+include "../scroll.php";
 $result=$conn->query("call zapros9()");/*query("SELECT DISTINCT `игры`.`Название`, Sum(`команда проекта`.`Оклад за этап`) AS `Стоимость`
 FROM игры INNER JOIN `команда проекта` ON `игры`.`ID игры` = `команда проекта`.`ID игры`
 GROUP BY `игры`.`Название`

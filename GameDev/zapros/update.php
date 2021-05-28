@@ -9,7 +9,7 @@ $rating=$_POST['rating'];
       // echo "<script>console.log('".$name." | ".$surname." | ".$fathername." | ".$position."');</script>";
 
 
- $result=$conn->/*query("UPDATE `игры` SET `Рейтинг`='$rating' WHERE `ID игры`='$gameid'");*/query("call updaterating('$gameid','$rating')");
+ $result=$conn->/*query("UPDATE `игры` SET `Рейтинг`='$rating' WHERE `ID игры`='$gameid'");*/query("call update_rating('$gameid','$rating')");
       	
 
 	if ($result) {

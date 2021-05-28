@@ -4,7 +4,7 @@ include "../connect.php";
 
 $gameid=$_POST['gameid'];
 $cost=$_POST['cost'];
- $result=$conn->/*query("UPDATE `игры` SET `Рейтинг`='$rating' WHERE `ID игры`='$gameid'");*/query("call updatecost('$gameid','$cost')");
+ $result=$conn->/*query("UPDATE `игры` SET `Рейтинг`='$rating' WHERE `ID игры`='$gameid'");*/query("call update_cost('$gameid','$cost')");
       	
 
 	if ($result) {

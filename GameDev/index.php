@@ -25,7 +25,7 @@ if($_GET['do'] == 'logout'){
     <link rel="stylesheet" href="style.css">
     
 </head>
-        <frameset rows="60,*,50" border="0" bordercolor='aqua' noresize >
+        <frameset rows="70,*" border="0" bordercolor='aqua' noresize >
 
             <frameset>
                 <frame src="header.php">
@@ -33,12 +33,8 @@ if($_GET['do'] == 'logout'){
 
             <frameset cols="20%, 80%">
                 <frame src="" name="menu-page">
-                <frame src="" name="main-page">
+                <frame src="" name="main-page" id="main-page">
             </frameset>
-
-            <frameset>
-                <frame src="campaign.html">
-           </frameset>
         </frameset>
         
 </html>

@@ -1,10 +1,9 @@
 <?php 
 include "../connect.php";
 
-$name=$_POST['name'];
 $exeid=$_POST['exeid'];
 
- $result=$conn->query("call deleteuser('$exeid','$name')");
+ $result=$conn->query("call deleteuser('$exeid')");
 /*query("DELETE FROM `исполнители` WHERE `Имя`='$name' and `ID исполнителя`='$exeid'");*/
       	
 	if ($result) {

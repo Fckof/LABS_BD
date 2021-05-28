@@ -3,13 +3,48 @@ html{
 	margin: 0;
 	padding: 0;
 	background:#000;
-	cursor: url(cursor.png);
+	
+
 }
 
 body{
 	margin: 0;
 	padding: 0;
 	color: white;
+	cursor: url(cursor.png);
+}
+
+::-webkit-scrollbar-button {
+background-image:url('');
+background-repeat:no-repeat;
+width:3px;
+height:0px
+}
+
+::-webkit-scrollbar-track {
+background-color:#32312e;
+box-shadow:0px 0px 3px #000 inset;
+}
+
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 5px;
+border-radius: 5px;
+background-color:#ffcb17;
+box-shadow:0px 1px 1px #fff inset;
+background-image:url('https://yraaa.ru/_pu/24/59610063.png');
+background-position:center;
+background-repeat:no-repeat;
+}
+
+::-webkit-resizer{
+background-image:url('');
+background-repeat:no-repeat;
+width:3px;
+height:0px
+}
+
+::-webkit-scrollbar{
+width: 2px;
 }
 .back{
 	position: fixed;
@@ -142,10 +177,17 @@ legend{
 
 .top_menu{
 	//background-color: green;
-	width: 50%;
+	width: 60%;
 	border-left: 3px solid red;
 	border-right: 3px solid red;
-	padding: 0 30px;
+	//padding: 0 30px;
+	margin: 0 auto;
+	overflow: auto;
+	height: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 
 }
 .top_menu ul{
@@ -155,6 +197,7 @@ legend{
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
+
 }
 @keyframes scalebut {
 			0%{

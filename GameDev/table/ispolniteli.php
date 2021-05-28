@@ -4,6 +4,8 @@
 	$servername="localhost";
 	$database="gamedev";
 
+include "../scroll.php";
+
 $conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
 
 $result=$conn->query("SELECT * FROM `исполнители`");

@@ -24,12 +24,20 @@
 				<!-- <hr> -->
 				
 				<li><a href="zaprosi.php" target="menu-page" class="">Запросы</a></li>
+				<?php 
+					if($_SESSION['user']=='moderator'||$_SESSION['user']=='root'):
+				 ?>
+				 	<li><a href="zaprosiReduct.php" target="menu-page" class="">Редактирование</a></li>
 
+				<?php endif; ?>
 				<?php
 					if($_SESSION['user']=='root'):
 				?>
 				<!-- <hr> -->
 				<li> <a href="otchets.html" target="menu-page" class="">Отчеты</a> </li>
+
+				<li> <a href="journals.html" target="menu-page" class="">Журналы
+				</a> </li>
 				<?php
 					endif;
 				?>

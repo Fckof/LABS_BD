@@ -1,6 +1,6 @@
 <?php 
 	include "../connect.php";
-
+include "../scroll.php";
 $result=$conn->query("call zapros7()");/*query("SELECT `команда разработчиков`.`Название`, Count(`игры`.`Название`) AS `Количество`
 FROM `команда разработчиков` INNER JOIN `игры` ON `команда разработчиков`.`ID разработчика` = `игры`.`ID разработчика`
 GROUP BY `команда разработчиков`.`Название`");*/
