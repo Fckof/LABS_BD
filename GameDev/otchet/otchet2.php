@@ -1,11 +1,8 @@
  <?php 
 session_start();
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
+include "../connect.php";
 include "../scroll.php";
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
+$year=$_POST['year'];
 
 /*$result=$conn->query("SELECT `команда разработчиков`.`Название`, Sum(`команда проекта`.`Оклад за этап`) AS `затраты`
 FROM `команда разработчиков` INNER JOIN (`игры` INNER JOIN `команда проекта` ON `игры`.`ID игры` = `команда проекта`.`ID игры`) ON `команда разработчиков`.`ID разработчика` = `игры`.`ID разработчика`

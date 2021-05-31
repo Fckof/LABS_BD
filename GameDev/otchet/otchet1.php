@@ -1,11 +1,7 @@
  <?php 
 session_start();
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
 include "../scroll.php";
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
+include "../connect.php";
 
 $result=$conn->query("SELECT `команда разработчиков`.`Название` AS `разрабы`,`игры`.`Название` AS `игра`, timestampdiff(month,`игры`.`Дата начала работы`,`игры`.`Дата окончания работы`) AS `месяцы`, timestampdiff(day,`игры`.`Дата окончания работы`,`игры`.`Дата выпуска`) AS `дни`, Sum(`команда проекта`.`Оклад за этап`) AS `бюджет`  FROM `команда разработчиков` inner join `игры` on `команда разработчиков`.`ID разработчика`=`игры`.`ID разработчика` inner join `команда проекта` on `игры`.`ID игры`=`команда проекта`.`ID игры` GROUP BY `разрабы`,`игра`,`месяцы`,`дни`");
 

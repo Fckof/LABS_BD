@@ -1,10 +1,5 @@
 <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
-
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
+include "../connect.php";
 include "../scroll.php";
 $result=$conn->query("SELECT * FROM `должности`");
 //$data=new array();

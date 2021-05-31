@@ -1,10 +1,6 @@
  <?php 
-	$userRoot = "root";
-	$passRoot = "root";
-	$servername="localhost";
-	$database="gamedev";
 include "../scroll.php";
-$conn = new mysqli($servername, $userRoot, $passRoot, $database) or die("Не подрубилось...");
+include "../connect.php";
 
 $result=$conn->query("SELECT `должности`.`Название должности` AS `должность`, Sum(`команда проекта`.`Оклад за этап`) AS `зарплата`
 FROM (`должности` INNER JOIN `исполнители` ON `должности`.`ID должности` = `исполнители`.`ID должности`) INNER JOIN `команда проекта` ON `исполнители`.`ID исполнителя` = `команда проекта`.`ID исполнителя`
