@@ -66,7 +66,9 @@ body {
 }
 
 .block {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
   margin: 15px auto 0 auto;
   z-index: 1000;
@@ -111,7 +113,19 @@ body {
   background-color: white;
 }
 .nav__enter_button {
-  padding: 8px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 255, 0, 0.3);
+  font-size: 18px;
+  color: #fff;
+}
+
+#logout {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.7);
+  font-size: 18px;
+  color: #fff;
 }
 
 .main {
@@ -271,6 +285,7 @@ input {
 .link {
   color: #fff;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .link:hover {
@@ -305,6 +320,7 @@ input {
   height: 203px;
   padding: 10px;
   background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .top {
@@ -323,4 +339,22 @@ input {
 
 .content {
   padding-top: 35px;
+}
+
+#submitLogin {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#form4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
