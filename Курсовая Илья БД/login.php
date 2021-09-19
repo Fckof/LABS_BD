@@ -12,24 +12,17 @@ if($_POST['submit']){
 	$result=$conn->query("SELECT `статус` FROM `пользователи` WHERE `логин`='$user' and `пароль`='$pass'");
 
 	$row=$result->fetch_assoc();
-	$access=$row['статус'];
-	//echo $access;
+	
 	if(count($row)==0){
 		$_SESSION['msg']="Не верный логин или пароль";
 	}else{
-		//$result=$conn->query("SELECT `Доступ` FROM `уровни доступа` WHERE `ID доступа`=$access");
 
-		//$row=$result->fetch_assoc();
+		$access=$row['статус'];
 
-		$_SESSION['user']=$access;//$row['статус'];
+		$_SESSION['user']=$access;
 		
 		header("Location: index.php");
 	} 
-}
-elseif($_POST['freeLog']){
-	$_SESSION['user']='гость';
-		
-		header("Location: index.php");
 }
 
  ?>
@@ -74,10 +67,7 @@ elseif($_POST['freeLog']){
 			<input type="submit" name="submit" class="input" id="button-submit" value="Войти">
 			
 		</div>
-		<div class="input-field">
-			<input type="submit" name="freeLog" class="input" id="button-submit-free" value="Войти как гость">
-			<!-- <button onkeypress="">Вход</button> -->
-		</div>
+		
 
 		
 	</form>

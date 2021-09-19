@@ -1,15 +1,15 @@
 <?php 
 include "../connect.php";
 
-$name=$_POST['name'];
-$id=$_POST['id'];
-$budget=$_POST['budget'];
-$istochnik=$_POST['istochnik'];
+$client=$_POST['client'];
+$address=$_POST['address'];
+$cour=$_POST['courier'];
+
 
 
       
 
- $result=$conn->query("call `добавить источник финансирования`('$id','$istochnik','$name','$budget')");
+ $result=$conn->query("call `Добавление нового заказа`('$cour','$address','$client')");
 
 	if ($result) {
       echo "<script>alert('Данные добавлены');</script>";
